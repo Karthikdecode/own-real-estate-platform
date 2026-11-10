@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# Test output
+coverage/
+
+# Environment files (only the template is committed)
+.env
+.env.*
+!.env.example
+
+# Local file storage (uploaded images in development)
+apps/api/storage/
+
+# Logs and OS / editor files
+*.log
+npm-debug.log*
+pnpm-debug.log*
+.DS_Store
+Thumbs.db
+.idea/

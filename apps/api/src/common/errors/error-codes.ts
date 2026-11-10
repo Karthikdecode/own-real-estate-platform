@@ -1,0 +1,23 @@
+import type { ErrorCode } from '@real-estate/contracts';
+
+export { ERROR_CODES, type ErrorCode } from '@real-estate/contracts';
+
+export const ERROR_HTTP_STATUS = {
+  VALIDATION_ERROR: 400,
+  INVALID_JSON: 400,
+  BAD_REQUEST: 400,
+  UNAUTHENTICATED: 401,
+  INVALID_TOKEN: 401,
+  TOKEN_EXPIRED: 401,
+  FORBIDDEN: 403,
+  FORBIDDEN_ORIGIN: 403,
+  NOT_FOUND: 404,
+  ROUTE_NOT_FOUND: 404,
+  CONFLICT: 409,
+  PAYLOAD_TOO_LARGE: 413,
+  UNSUPPORTED_MEDIA_TYPE: 415,
+  RATE_LIMITED: 429,
+  INTERNAL_ERROR: 500,
+  NOT_IMPLEMENTED: 501,
+  SERVICE_UNAVAILABLE: 503,
+} as const satisfies Record<ErrorCode, number>;

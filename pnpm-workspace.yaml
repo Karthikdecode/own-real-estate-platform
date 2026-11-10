@@ -1,0 +1,6 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+  # apps/mobile is a documentation-only placeholder. Remove this exclusion when
+  # the React Native app (with its own package.json) is introduced.
+  - '!apps/mobile'

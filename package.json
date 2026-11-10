@@ -1,0 +1,40 @@
+{
+  "name": "real-estate-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Real estate listing platform (99acres / NoBroker inspired): pnpm monorepo with a Next.js web app, an Express API and shared TypeScript contracts.",
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=22.13.0",
+    "pnpm": ">=9.15.0"
+  },
+  "scripts": {
+    "setup:env": "node scripts/setup-env.mjs",
+    "dev": "pnpm build:contracts && concurrently --names contracts,api,web --prefix-colors blue,magenta,cyan --kill-others-on-fail \"pnpm --filter @real-estate/contracts dev\" \"pnpm --filter @real-estate/api dev\" \"pnpm --filter @real-estate/web dev\"",
+    "dev:api": "pnpm build:contracts && pnpm --filter @real-estate/api dev",
+    "dev:web": "pnpm build:contracts && pnpm --filter @real-estate/web dev",
+    "build": "pnpm --recursive build",
+    "build:contracts": "pnpm --filter @real-estate/contracts build",
+    "build:api": "pnpm --filter \"@real-estate/api...\" build",
+    "build:web": "pnpm --filter \"@real-estate/web...\" build",
+    "start:api": "pnpm --filter @real-estate/api start",
+    "start:web": "pnpm --filter @real-estate/web start",
+    "lint": "pnpm --recursive lint",
+    "type-check": "pnpm build:contracts && pnpm --recursive type-check",
+    "test": "pnpm build:contracts && pnpm --recursive test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "db:up": "docker compose --env-file .env -f docker/docker-compose.yml up -d",
+    "db:down": "docker compose --env-file .env -f docker/docker-compose.yml down",
+    "db:logs": "docker compose --env-file .env -f docker/docker-compose.yml logs -f postgres",
+    "db:migrate": "pnpm --filter @real-estate/api db:migrate",
+    "db:migrate:revert": "pnpm --filter @real-estate/api db:migrate:revert",
+    "db:migration:show": "pnpm --filter @real-estate/api db:migration:show",
+    "db:migration:generate": "pnpm --filter @real-estate/api db:migration:generate",
+    "db:migration:create": "pnpm --filter @real-estate/api db:migration:create"
+  },
+  "devDependencies": {
+    "concurrently": "10.0.7",
+    "prettier": "3.9.10"
+  }
+}

@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Centralized Design Tokens: Light & Dark Modes */
+:root {
+  --brand-primary: #087F70;
+  --brand-primary-hover: #06685F;
+  --brand-primary-light: #DFF5EF;
+  --brand-accent: #2DD4BF;
+
+  --background: #F7F8F5;
+  --surface: #FFFFFF;
+  --surface-secondary: #F1F5F3;
+  --surface-elevated: #FFFFFF;
+
+  --text-primary: #17212B;
+  --text-secondary: #52616B;
+  --text-muted: #718096;
+  --text-inverse: #FFFFFF;
+
+  --border: #E2E8F0;
+  --border-strong: #CBD5E1;
+
+  --success: #15803D;
+  --warning: #B45309;
+  --error: #DC2626;
+  --info: #2563EB;
+}
+
+html.dark {
+  --brand-primary: #14B8A6;
+  --brand-primary-hover: #2DD4BF;
+  --brand-accent: #5EEAD4;
+
+  --background: #0B1220;
+  --surface: #111C2E;
+  --surface-secondary: #18263A;
+  --surface-elevated: #1E2D43;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-inverse: #0B1220;
+
+  --border: #26354A;
+  --border-strong: #3A4C63;
+
+  --success: #4ADE80;
+  --warning: #FBBF24;
+  --error: #F87171;
+  --info: #60A5FA;
+  color-scheme: dark;
+}
+
+@theme {
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-hover: var(--brand-primary-hover);
+  --color-brand-primary-light: var(--brand-primary-light);
+  --color-brand-accent: var(--brand-accent);
+
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-surface-elevated: var(--surface-elevated);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverse: var(--text-inverse);
+
+  --color-border-subtle: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  /* Fallback color utilities for teal palette */
+  --color-brand-50: oklch(98.4% 0.014 180.72);
+  --color-brand-100: oklch(95.3% 0.051 180.801);
+  --color-brand-600: #087F70;
+  --color-brand-700: #087F70;
+  --color-brand-800: #06685F;
+  --color-brand-950: #0B1220;
+}
+
+/* Global transitions and scrollbar */
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+/* Custom scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

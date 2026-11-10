@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": ".",
+    "types": ["node"],
+    // TypeORM 1.x decorators are legacy decorators. tsx (esbuild) and Vitest (Oxc) cannot emit
+    // decorator metadata, so it stays off and every entity column declares its type explicitly.
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": false
+  },
+  "include": ["src", "tests", "vitest.config.ts"]
+}
